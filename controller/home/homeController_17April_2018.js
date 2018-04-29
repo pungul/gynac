@@ -138,7 +138,7 @@ app.controller("homeController",["$scope", "$rootScope", "dataService", "$state"
 		dataService.postData(webURL, dataToBeSend).then(function (data) {
 			console.log(data);
             
-			if (data == 0) {
+            if(dada == 0){
                  $('#triggerInternalError').trigger('click');
             }else if(data == 1){
                 $('#triggerSucsessfullyVerifyEmailModal').trigger('click');
@@ -162,10 +162,6 @@ app.controller("homeController",["$scope", "$rootScope", "dataService", "$state"
 
     $scope.getAllNotification = function () {
         $rootScope.$emit('updateNotification', $rootScope.authenticatedUser.UserInfo.User_Id);
-    }
-
-    $scope.goToHome = function(){
-        $state.go('home');
     }
 
     
