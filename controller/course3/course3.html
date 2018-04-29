@@ -1,0 +1,103 @@
+<section class="home training">
+    <div class="slider-relative">
+        <nav class="navbar navbar-default nav-header">
+            <div class="container" id="courceTop">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-list-main" id="bs-example-navbar-collapse-1">
+                    <div class="col-sm-12 col-md-12">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li class="li-1"><a class="a-1" href="#/home">Home <span class="sr-only">(current)</span></a></li>
+                            <li class="li-1"><a class="a-1" href="#/about">About Us</a></li>
+                            <li class="dropdown li-1 state-active"><a class="a-1" href="javascript:;">Courses</a>
+                                <ul class="dropdown-menu">
+                                    <li class="li-2"><a class="a-2" href="#/6_Month_Certification_Course">6-Month Certification Course </a></li>
+                                    <li class="li-2"><a class="a-2" href="#/Individual_Lectures">Individual Lectures</a></li>
+                                    <li class="li-2"><a class="a-2 state-active" href="#/IOTA_Certification_Course">IOTA Certification Program</a></li>
+                                </ul>
+                            </li>
+                            <li class="li-1"><a class="a-1" href="#/lecture">Lectures</a></li>
+                            <li class="li-1"><a class="a-1" href="#/freelecture">Free Lectures</a></li>
+                            <li class="li-1"><a class="a-1" href="#/faculty">Faculty</a></li>
+                            <li class="li-1"><a class="a-1" href="#/contact">Contact</a></li>
+                            <li class="li-1"><a class="a-1" href="#/signIn" ng-hide="authenticatedUser.UserInfo.First_Name">Login</a></li>
+                            <li class="li-1"><a class="a-1" href="#/signUp" ng-hide="authenticatedUser.UserInfo.First_Name">Register</a></li>
+                            <li class="dropdown li-1">
+                                <a class="a-1" href="javascript:;" ng-show="authenticatedUser.UserInfo.First_Name">{{authenticatedUser.UserInfo.First_Name}}</a>
+                                <ul class="dropdown-menu">
+                                    <li class="li-2"><a class="a-2" href="#/myProfile">My Profile</a></li>
+                                    <li class="li-2"><a class="a-2" href="#/training">Training Detail</a></li>
+                                    <li class="li-2" ng-click="signOut()"><a class="a-2" href="javascript:;">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown li-1" ng-show="authenticatedUser.UserInfo.First_Name">
+                                <a class="a-1" href="javascript:;" ng-click="getAllNotification()">
+                                    <i class="fa fa-bell" aria-hidden="true" ng-show="authenticatedUser.UserInfo.First_Name">{{notificationCount.length}}</i>
+                                </a>
+                            </li>
+                            <li class="li-3">
+                                <a href="https://www.facebook.com/Gynecology-Academy-1776711995945554Gynecology-Academy-1776711995945554" class="btn btn-social-icon btn-facebook" target="_blank"> <i class="fa fa-facebook"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+            <div class="row page-header banner-page">
+                <div class="col-sm-12 col-md-2 sm-center"><img src="gynacApp/local/img/logo.png" alt="logo" /> </div>
+                <div class="col-sm-12 col-md-8 sm-center">
+                    <h2>ULTRASOUND IN GYNECOLOGY</h2>
+                    <h2>6 Month Certification Course</h2>
+                </div>
+                <!--<div class="col-sm-12 col-md-2 sm-center">
+                    <div class='btn-toolbar pull-right'>
+                        <div class='btn-group button-effect'> <a href="#/6_Month_Certification_Course#course_Top" class="btn effect custom-effect">APPLY NOW</a> </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="container main-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="center-block course-name">IOTA CERTIFICATION PROGRAM</h4>
+            </div>
+            <div class="col-md-12 text-center" style="margin: 40px 0 0"> <img class="center-block" height="75" src="gynacApp/local/img/iota.png"> </div>
+            <div class="col-md-12">
+                <p style="margin: 50px 0 20px;">The IOTA Certification program is for practitioners desiring to enhance their ultrasound skills in evaluation of adnexal masses. Adnexal masses are frequently encountered and are often a challenge to diagnose and manage. This program is focused on providing knowledge of internationally accepted standardized terminology and methodologies for evaluation of adnexal masses. This will significantly help in determining whether these masses are benign or malignant, and the likely pathology. Dr Mala Sibal has been authorised to conduct IOTA Certification Course & Exams in India & Asia – by the IOTA group. A test will be conducted at the end of the program. On passing the IOTA test, you will be certified by the IOTA group (Europe). A certificate will be provided by them and your name will be uploaded on the IOTA website. Please visit <a href="http://www.iotagroup.org/" target="_blank">www.iotagroup.org</a> for details of the IOTA certifying body.
+                </p>
+                <p style="margin: 50px 0 20px;">If you are interested in the IOTA course please register (registration is free) and mention so during the registration. We will keep you posted whenever an IOTA course is being conducted. Societies interested in conducting these courses can also get in touch with us.
+                </p>
+                <p style="margin: 50px 0 20px;">Details of dates & locations will be available at <a href="http://www.gynac.org/" target="_blank">www.gynac.org</a> (this website) & Gynecology Academy facebook page. Stay tuned!
+                </p>
+                <p style="margin: 50px 0 0;"><b>The first IOTA Certification Program – Bangalore; 15th April, 2018</b></p>
+                <p style="margin: 50px 0 0;">This program will be jointly hosted by Gynecology Academy and the Bangalore Society of Obstetrics & Gynecology (BSOG).</p> 
+                <br>
+                <p>Time: 9AM to 1PM, followed by lunch</p>
+                <p>Place: BSOG office, API Bhavan, Millers Tank Bund Road, Bangalore</p>
+                <p>Registration fee is Rs. 3500 (All Inclusive)</p>
+                <p>Link on IOTA website: <a href="www.iotagroup.org/index.php/congresses/upcoming-iota-lectures" target="_blank">www.iotagroup.org/index.php/congresses/upcoming-iota-lectures</a></p>
+                <!--<p style="margin: 20px 0 0;">Click <a target="_blank" href="https://gynac.ccavenue.com/stores/prl/gynac,34216">here</a> to buy and Enrol for the IOTA certification course.</p>-->
+                <p style="margin: 0 0 20px;">Contact: <b>+91 9325890820 </b> or <a href="mailto:support@gynac.org?Subject=Hi%20Heloo%20Hi%20subject" target="_top">support@gynac.org</a></p>
+                <div style="margin: 20px 0 0;">
+                    <p style="margin: 13px 0 0;display: inline-block;vertical-align: top;">To buy and enrol for the IOTA certification course -</p>&nbsp;&nbsp;
+                    <div class="btn-toolbar" style="margin: 0;display: inline-block">
+                        <div class="btn-group button-effect"> <a target="_blank" href="https://gynac.ccavenue.com/stores/prl/gynac,34216" class="btn effect custom-effect">CLICK HERE</a> </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</section>
