@@ -1,0 +1,126 @@
+﻿@model List<Sculptor.Gynac.Models.UsersForReviewModel>
+@{
+    ViewBag.Title = "GetFacultyUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Faculty Users</span>
+    </h2>
+</div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+    <div class="blank-page">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sr.NO</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                    <th>Module Name</th>
+                    <th>Sub Date</th>
+                    <th>No of Years Ex</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td><a href="/Faculty/GetAllReviewImages?userModuleImageId=@item.UserModuleImagesId">Review</a>/<a href="" data-toggle="modal" data-target="#transferModel" onclick="getAllFacultyList(this,@item.UserModuleImagesId)">Transfer</a></td>
+                        <td>@item.ModuleName</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+<div id="transferModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title"></h2>
+            </div>
+            <div class="modal-body">                
+                <input type="hidden" id="UserModuleImageId" />
+                <div>
+                    Select Faculty :- <select id="ddlFaculty">
+                        <option value="0">Select Faculty</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="button" value="Save" class="btn btn-default" onclick="TransferUserModule()" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div id="error"></div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script type="text/javascript">
+    $(function () {
+        $("#example1").dataTable();
+    });
+
+    function getAllFacultyList(val,userModuleImageId) {
+        $.ajax({
+            type: "GET",
+            url: '/Faculty/GetFacultyUserExceptThis?facultyId=@ViewBag.facultyId',
+            data: {},
+            success: function (result) {    
+                $("#UserModuleImageId").val(userModuleImageId);
+                $.each(result, function (key, value) {
+                    $("#ddlFaculty").append("<option value=" + value.Faculty_Id + ">" + value.Name + "</option>");
+                });
+            },
+            error: function (error) {
+                $("#error").html(error.responseText);
+            },
+            dataType: 'json'
+        });
+    }
+
+    function TransferUserModule() {
+        var data = {
+            UserModuleImageId :$("#UserModuleImageId").val(),            
+            FromFacultyId:@ViewBag.facultyId,
+            ToFacultyId:$( "#ddlFaculty option:selected" ).val()
+        }
+        console.log(data);
+
+        $.ajax({
+            type: "POST",
+            url: '/Faculty/TransferFacultyForReviews',
+            data: data,
+            success: function (result) {
+                window.location.href = '/Faculty/GetFacultyUsers?facultyId=@ViewBag.facultyId';
+            },
+            error: function (error) {
+                //$("#eroor").html(error.responseText);
+            },
+            dataType: 'json'
+        });
+
+    }
+</script>

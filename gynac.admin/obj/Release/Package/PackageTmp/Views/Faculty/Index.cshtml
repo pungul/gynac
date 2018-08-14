@@ -1,0 +1,56 @@
+﻿@model List<Sculptor.Gynac.Repository.Faculty>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Faculty</span>
+    </h2>
+</div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+    <div class="blank-page">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sr.NO</th>
+                    <th>Name</th>
+                    <th>Option</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Name</td>                        
+                        <td><a href="/Faculty/GetFacultyUsers?facultyId=@item.Faculty_Id">Get Faculty User</a></td>
+                        @*<td><a href="/User/SetTalksLink?userId=@item.Faculty_Id">Link To See Access Right </a></td>*@
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+<!--//faq-->
+<!---->
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script type="text/javascript">
+    $(function () {
+        $("#example1").dataTable();
+      });
+</script>

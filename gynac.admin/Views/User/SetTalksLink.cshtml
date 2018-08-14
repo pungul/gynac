@@ -1,0 +1,235 @@
+﻿@model Sculptor.Gynac.Models.UserTaskModel
+@{
+    ViewBag.Title = "SetTalksLink";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /*.moduleOverFlow {
+        height: 600px;
+        overflow-y:scroll ;
+    }*/
+</style>
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Users</span>
+    </h2>
+</div>
+
+<div class="blank">
+    <div class="blank-page form-horizontal">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            @foreach (var session in Model.UserSessionMaster)
+                            {
+                            <tr class="table-row">
+                                <td class="table-text">
+                                    <h3>@session.Name</h3>
+                                </td>
+                                <td class="table-text"><input type="checkbox" data-sid="@session.Id" name="session" checked="@session.IsSessionChecked" /></td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text" colspan="2">
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var module in session.UserModuleMaster)
+                                                {
+
+                                                <tr class="table-row">
+                                                    <td class="table-text"><h4>@module.Name</h4></td>
+                                                    <td class="table-text"><input type="checkbox" data-sid="@session.Id" name="module" data-mid="@module.Id" checked="@module.IsModuleChecked" /></td>
+                                                </tr>
+                                                <tr class="table-row">
+                                                    <td class="table-text" colspan="2">
+                                                        <table class="table">
+                                                            <tbody>
+                                                                @foreach (var talks in module.UserTalkMaster.Where(m => m.ModulId == module.Id).ToList())
+                                                                    {
+                                                                    <tr class="table-row">
+                                                                        <td class="table-text">
+                                                                            <h5>@talks.Name</h5>
+                                                                        </td>
+                                                                        <td class="table-text">
+                                                                            @if (talks.IsTalksChecked)
+                                                                                {
+                                                                                <h5>@talks.EndDate.ToString("dd/MM/yyyy")</h5>
+                                                                                }
+                                                                        </td>
+                                                                        <td class="table-text"><input type="checkbox" data-sid="@session.Id" name="talks" data-mid="@module.Id" data-tid="@talks.Id" data-tname="@talks.Name" checked="@talks.IsTalksChecked" /></td>
+                                                                    </tr>
+                                                                    }
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12" style="margin-left:40px;">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitAllTalks">Save</button>
+                @Html.ActionLink("Cancel", "Index",
+         new { controller = "User" },
+         new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="submitAllTalks" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="control-label ">Date</label>
+                        <input type="date" class="form-control1" required="" id="endDate">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="button" value="Save" class="btn btn-default" id="setUserTalks" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script>
+    $(document).ready(function () {
+        $("[name=session]").click(function () {
+            var sId = $(this).attr('data-sid');
+            if ($(this).is(':checked')) {
+                $.each($("[name=module]"), function (index, value) {
+                    var stId = $(value).attr('data-sid');
+                    if (stId == sId) {
+                        $(value).prop('checked', true);
+                    }
+                });
+
+                $.each($("[name=talks]"), function (index, value) {
+                    var stId = $(value).attr('data-sid');
+                    if (stId == sId) {
+                        $(value).prop('checked', true);
+                    }
+                });
+            }
+            else {
+                $.each($("[name=module]"), function (index, value) {
+                    var stId = $(value).attr('data-sid');
+                    if (stId == sId) {
+                        $(value).prop('checked', false);
+                    }
+                });
+
+                $.each($("[name=talks]"), function (index, value) {
+                    var stId = $(value).attr('data-sid');
+                    if (stId == sId) {
+                        $(value).prop('checked', false);
+                    }
+                });
+            }
+
+        });
+
+        $("[name=module]").click(function () {
+            var mId = $(this).attr('data-mid');
+            var sId = $(this).attr('data-sid');
+            if ($(this).is(':checked')) {
+                $.each($("[name=talks]"), function (index, value) {
+                    var mtId = $(value).attr('data-mid');
+                    if (mtId == mId) {
+                        $(value).prop('checked', true);
+                    }
+                });
+            }
+            else {
+                $.each($("[name=talks]"), function (index, value) {
+                    var mtId = $(value).attr('data-mid');
+                    if (mtId == mId) {
+                        $(value).prop('checked', false);
+                    }
+                });
+            }
+        })
+
+        $("[name=talks]").click(function () {
+            var tId = $(this).attr('data-tid');
+            if ($(this).is(':checked')) {
+                $(this).prop('checked', true);
+            }
+            else {
+                $(this).prop('checked', false);
+            }
+        });
+
+        $("#setUserTalks").click(function (e) {
+            var tIdList = [];
+            var tNameList = [];
+            if($("#endDate").val() == ""){
+                $("#endDate").val();
+            }
+            else{
+                var endDate =moment($("#endDate").val()).format('MM-DD-YYYY');
+            }
+
+
+            $.each($("[name=talks]"), function (index, value) {
+                console.log($(this).is(':checked'));
+                if ($(this).is(':checked')) {
+                    tIdList.push($(this).attr('data-tid'));
+                    tNameList.push($(this).attr('data-tname'));                                       
+                }
+            });
+
+            //if no one talk assign then.
+            var isUnCheckAll;
+            if (tIdList.length === 0 && tNameList.length === 0) {
+                isUnCheckAll = true;
+            }
+            else {
+                isUnCheckAll = false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '/User/SetUserTalksLink',
+                data: {'userId':@ViewBag.userId,'talksId': tIdList, 'endDate':endDate, 'isUnCheckAll': isUnCheckAll},
+                success: function(result){
+                    //alert(result.sucess);
+                    window.location.href = '/User/Index';
+                },
+                error:function(error){
+                    //$("#eroor").html(error.responseText);
+                },
+                dataType: 'json'
+            });
+        })
+
+    })
+</script>

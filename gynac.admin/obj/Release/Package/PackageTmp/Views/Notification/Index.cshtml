@@ -1,0 +1,222 @@
+﻿@model List<Sculptor.Gynac.Models.UserNotificationModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+
+@Styles.Render("~/Content/css")
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Faculty</span>
+    </h2>
+</div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+    <div class="blank-page">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addnotification">Add Notification</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row" style="margin-top:5px;">
+            <div class="col-md-12">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sr.NO</th>
+                            <th>User</th>
+                            <th>Comment</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            i++;
+                            <tr>
+                                <td>@i</td>
+                                <td>@item.Name</td>
+                                <td>@item.Comment</td>
+                                @if (item.IsRead == 0)
+                                {
+                                    <td><span class="label label-default">Pending</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="label label-success">Read</span></td>
+                                }
+
+                                <td>
+                                    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addnotification" onclick="getUserComment(@item.NotificationId)">Edit</button>*@
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deletenotification" onclick="setUserNotification(@item.NotificationId);">Delete</button>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="addnotification" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title">Notification</h2>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" value="" id="notificationId" />
+                <div class="row">
+                    <div class="col-md-3">Select User :- </div>
+                    <div class="col-md-9">
+                        @Html.ListBox("ddlUser", (MultiSelectList)ViewBag.UserList)
+                    </div>
+                </div>
+                <div class="row" style="margin-top:5px;">
+                    <div class="col-md-3">
+                        Comment:-
+                    </div>
+                    <div class="col-md-9">
+
+                        <textarea rows="2" cols="40" placeholder="Enter Comment..." id="userComment"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="button" value="Save" class="btn btn-default" id="addComment" onclick="addUserComment()" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div id="deletenotification" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title">Remove</h2>
+            </div>
+            <div class="modal-body">
+                <p>Do you want To remove this notification?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <input type="button" value="Yes" class="btn btn-danger" id="delereNotification" onclick="deleteUserComment()" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+<!--//faq-->
+<!---->
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script type="text/javascript">
+    $(function () {
+        $("#example1").dataTable();
+    });
+
+    $(document).ready(function () {
+        //$(function () {
+        //    $('.multiselect-ui').multiselect({
+        //        includeSelectAllOption: true
+        //    });
+        //});
+    })
+
+    function setUserNotification(id) {
+        $("#notificationId").val(id);
+    }
+
+    //function getAllUserList() {
+    //    $.ajax({
+    //        type: "GET",
+    //        url: '/User/GetAllUsers',
+    //        data: {},
+    //        success: function (result) {
+    //            $.each(result, function (key, value) {
+    //                $("#ddlUser").append("<option value=" + value.UserId + ">" + value.UserName + "</option>");
+    //            });
+    //        },
+    //        error: function (error) {
+    //            $("#error").html(error.responseText);
+    //        },
+    //        dataType: 'json'
+    //    });
+    //}
+
+    function addUserComment() {
+        var UserId = $("#ddlUser").val();
+
+        var data = {
+            NotificationId: 0,
+            UserId: UserId,
+            Comment: $("#userComment").val()
+        }
+
+        $.ajax({
+            type: "POST",
+            url: '/Notification/AddNotification',
+            data: data,
+            success: function (result) {
+                window.location.href = '/Notification/Index';
+            },
+            error: function (error) {
+                //$("#eroor").html(error.responseText);
+            },
+            dataType: 'json'
+        });
+
+    }
+
+    //function getUserComment(notificationId) {
+    //    $("#notificationId").val();
+    //    $("#userComment").val("");
+    //    $.ajax({
+    //        type: "GET",
+    //        url: '/Notification/GetNotification?notificationId=' + notificationId,
+    //        data: {},
+    //        success: function (result) {
+    //            $("#notificationId").val(result.NotificationId);
+    //            $("#userComment").val(result.Comment);
+    //            $("#ddlUser").val(result.UserId);
+    //        },
+    //        error: function (error) {
+    //            //$("#eroor").html(error.responseText);
+    //        },
+    //        dataType: 'json'
+    //    });
+    //}
+
+    function deleteUserComment() {
+        var notificationId = $('#notificationId').val();
+        $.ajax({
+            type: "POST",
+            url: '/Notification/DeleteNotification?notificationId=' + notificationId,
+            data: {},
+            success: function (result) {
+                window.location.href = '/Notification/Index';
+            },
+            error: function (error) {
+                //$("#eroor").html(error.responseText);
+            },
+            dataType: 'json'
+        });
+    }
+</script>

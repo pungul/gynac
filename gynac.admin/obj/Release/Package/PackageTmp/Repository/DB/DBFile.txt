@@ -1,0 +1,32 @@
+ALTER TABLE [gynac].[dbo].[UserModuleImage]
+  ADD Faculty_Id int null FOREIGN KEY REFERENCES [gynac].[dbo].[Faculty](Faculty_Id)
+
+  ALTER TABLE [gynac].[dbo].[User]
+  ADD Comment nvarchar(max) null 
+
+  ALTER TABLE [gynac].[dbo].[Faculty]
+  ADD AspNetUsersId nvarchar(128) null FOREIGN KEY REFERENCES [gynac].[dbo].[AspNetUsers](Id)
+
+  set allow null in faculty table
+
+  delete from [gynac].[dbo].[AspNetUsers] where Id !='29ac61d2-f1f5-470a-b41a-e0548d8d3813'
+  delete from [gynac].[dbo].[AspNetUserRoles] where UserId !='29ac61d2-f1f5-470a-b41a-e0548d8d3813'
+
+  
+  //test changes
+
+
+  GetFacultyUsers
+  GetAllUsersByFaculty
+  ModuleUserListByFacultyModel
+
+  commonrepo
+  GetUserModuleImageByModuleId
+  GetAllReviewImages
+  ModuleDetailsModel
+
+
+update the contrain 23082017
+ALTER TABLE [dbo].[UserTalks] ADD CONSTRAINT DF_IsActive DEFAULT 0 FOR IsActive;
+ALTER TABLE [dbo].[UserTalks] ADD CONSTRAINT DF_IsVideoStatus DEFAULT 0 FOR IsVideoStatus;
+ALTER TABLE [dbo].[UserTalks] ADD CONSTRAINT DF_IsExamlear DEFAULT 0 FOR IsExamlear;

@@ -1,0 +1,108 @@
+﻿@model List<Sculptor.Gynac.Repository.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Users</span>
+    </h2>
+</div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+    <div class="blank-page">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/Account/Register">Add Faculty</a>
+            </div>
+        </div>
+        <hr />
+        <div class="row" style="width:100% !important; overflow-x:scroll;">
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="table-responsive">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width:5px !important;">Sr.NO</th>
+                                <th width="5%">UserId</th>
+                                <th width="5%">Name</th>
+                                <th>Email</th>
+                                @*<th>Register Date</th>*@
+                                <th>Mobile</th>
+                                @*<th>Country</th>*@
+                                <th>Participate</th>
+                                <th>Summary</th>
+                                <th>Details</th>
+                                <th>Talk Access</th>
+                                <th>Email Verified</th>
+                                <th>Guid</th>
+                                <th>Access Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                i++;
+                                <tr>
+                                    <td style="width:5px !important;">@i</td>
+                                    <td>@item.User_Id</td>
+                                    <td>@item.First_Name</td>
+                                    <td>@item.Email</td>
+                                    @*<td>Regiseter Data</td>*@
+                                    <td>@item.Mobile</td>
+                                    @*<td>@item.Country</td>*@
+                                    <td>@item.IsParticipate</td>
+                                    <td><a href="/User/TutorialSummary?userId=@item.User_Id">Summary Report </a></td>
+                                    <td><a href="/User/GetUserById?userId=@item.User_Id">Link To Details </a></td>
+                                    <td><a href="/User/SetTalksLink?userId=@item.User_Id">Link To See Access Right </a></td>
+                                    <td>@item.Email_Verified</td>
+                                    <td>@item.Guid</td>
+                                    <td>@item.Utype</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="viewAllModuleImages" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <label class="control-label ">Date</label>
+                    <input type="date" class="form-control1" required="" id="endDate">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="button" value="Save" class="btn btn-default" id="setUserTalks" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script type="text/javascript">
+    $(function () {
+        $("#example1").dataTable();
+    });
+</script>
+

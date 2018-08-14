@@ -1,0 +1,74 @@
+﻿@model List<Sculptor.Gynac.Models.TutorialSummaryModel>
+@{
+    ViewBag.Title = "TutorialSummary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/css")
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Summary</span>
+    </h2>
+</div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+    <div class="blank-page">
+        <div class="row">
+            <div class="col-md-12">
+                @ViewBag.TutorialSummaryTitle
+            </div>
+        </div>
+        <div class="row" style="margin-top:5px;">
+            <div class="col-md-12">
+                <table class="table" ng-show="tutorialSummary.length > 0">
+                    <thead>
+                        <tr>
+
+                            <th rowspan="2">Session No.</th>
+                            <th colspan="2">No. of Lectures</th>
+                            <th colspan="2">No. of Modules - Image Submission</th>
+
+                        </tr>
+                        <tr>
+                            <th>Completed</th>
+                            <th>Pending</th>
+                            <th>Completed</th>
+                            <th>Pending</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SessionName</td>
+                                <td>@item.TotalCompletedTalks </td>
+                                <td>@item.TotalPendingTalks </td>
+                                @if (@item.TotalPendingTalks == 0)
+                                {
+                                    <td>0</td>
+                                    <td>0</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @item.TotalCompletedModules
+                                    </td>
+                                    <td>
+                                        @item.TotalPendingModules
+                                    </td>
+                                }
+                            </tr>
+                         }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

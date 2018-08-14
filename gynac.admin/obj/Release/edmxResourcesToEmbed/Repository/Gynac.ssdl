@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GynacModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Course_Id" />
+    </Key>
+    <Property Name="Course_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Faculty_Id" Type="int" Nullable="false" />
+    <Property Name="Course_Image" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Fees" Type="int" Nullable="false" />
+    <Property Name="Currency" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Validity_Days" Type="int" Nullable="false" />
+    <Property Name="Insert_Date" Type="datetime" Nullable="false" />
+    <Property Name="Update_Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="Faculty_Id" />
+    </Key>
+    <Property Name="Faculty_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="10" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Image" Type="varchar(max)" Nullable="false" />
+    <Property Name="Profile_Summary" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Insert_Date" Type="datetime" Nullable="false" />
+    <Property Name="Update_Date" Type="datetime" Nullable="false" />
+    <Property Name="ProfilePic" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="AspNetUsersId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ModuleImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SampleImage" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ModulId" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ModuleMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="SessionId" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="FacultyId" Type="int" />
+    <Property Name="ModuleDesc" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsRead" Type="int" />
+    <Property Name="FacultyId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RatingMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RatingName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SessionMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TalkMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="VideoLink" Type="nvarchar(max)" />
+    <Property Name="PreViewVideoLink" Type="nvarchar(max)" />
+    <Property Name="FacultyId" Type="int" />
+    <Property Name="ModulId" Type="int" />
+    <Property Name="SessionId" Type="int" />
+    <Property Name="Talkdesc" Type="nvarchar(max)" />
+    <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="BackupVideoLink" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Middle_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email_Verified" Type="bit" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Professional_Specialty" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Educational_Qualification" Type="varchar" MaxLength="50" />
+    <Property Name="Street_Address" Type="varchar" MaxLength="100" />
+    <Property Name="City_Town" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Institution_Work_Place" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Where_Hear" Type="varchar" MaxLength="50" />
+    <Property Name="Guid" Type="varchar" MaxLength="50" />
+    <Property Name="Transaction_Id" Type="varchar" MaxLength="100" />
+    <Property Name="Transaction_Status" Type="varchar" MaxLength="150" />
+    <Property Name="Order_Status" Type="varchar" MaxLength="50" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="IsLogin" Type="bit" />
+    <Property Name="IpAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserAgent" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsParticipate" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="TutorialSummaryTitle" Type="nvarchar(max)" />
+    <Property Name="IsIOTA" Type="bit" />
+    <Property Name="Utype" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="User_Course">
+    <Key>
+      <PropertyRef Name="User_Course_Id" />
+    </Key>
+    <Property Name="User_Course_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Course_Id" Type="int" Nullable="false" />
+    <Property Name="Registered_Date" Type="datetime" Nullable="false" />
+    <Property Name="Registered_Till" Type="datetime" />
+    <Property Name="Payment_Mode" Type="varchar" MaxLength="100" />
+    <Property Name="Payment_Amount" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="Payment_Currency" Type="varchar" MaxLength="50" />
+    <Property Name="Is_Active" Type="bit" Nullable="false" />
+    <Property Name="Transaction_Id" Type="varchar" MaxLength="100" />
+    <Property Name="Transaction_Status" Type="varchar" MaxLength="150" />
+    <Property Name="Order_Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserBookMark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="BookMarkName" Type="nvarchar" MaxLength="200" />
+    <Property Name="BookMarkTime" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="TalkId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserModuleImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="IsStatus" Type="int" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="ModulId" Type="int" />
+    <Property Name="ModuleImageId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Faculty_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRating">
+    <Key>
+      <PropertyRef Name="UserRatingId" />
+    </Key>
+    <Property Name="UserRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RatId" Type="int" Nullable="false" />
+    <Property Name="RateMark" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="TalkId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserTalks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enddate" Type="datetime" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="IsVideoStatus" Type="int" />
+    <Property Name="IsExamlear" Type="int" />
+    <Property Name="TalkId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="ModuleId" Type="int" />
+    <Property Name="IsModuleClear" Type="int" />
+  </EntityType>
+  <Association Name="FK__Faculty__AspNetU__0C50D423">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Faculty">
+        <PropertyRef Name="AspNetUsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModuleIma__Modul__3B75D760">
+    <End Role="ModuleMaster" Type="Self.ModuleMaster" Multiplicity="0..1" />
+    <End Role="ModuleImage" Type="Self.ModuleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModuleMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleImage">
+        <PropertyRef Name="ModulId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModuleMas__Facul__5AB9788F">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+    <End Role="ModuleMaster" Type="Self.ModuleMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Faculty_Id" />
+      </Principal>
+      <Dependent Role="ModuleMaster">
+        <PropertyRef Name="FacultyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ModuleMas__Sessi__38996AB5">
+    <End Role="SessionMaster" Type="Self.SessionMaster" Multiplicity="0..1" />
+    <End Role="ModuleMaster" Type="Self.ModuleMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SessionMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleMaster">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__Facul__5EBF139D">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Faculty_Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="FacultyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__UserI__5FB337D6">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TalkMaste__Facul__3E52440B">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+    <End Role="TalkMaster" Type="Self.TalkMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Faculty_Id" />
+      </Principal>
+      <Dependent Role="TalkMaster">
+        <PropertyRef Name="FacultyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TalkMaste__Modul__3F466844">
+    <End Role="ModuleMaster" Type="Self.ModuleMaster" Multiplicity="0..1" />
+    <End Role="TalkMaster" Type="Self.TalkMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModuleMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TalkMaster">
+        <PropertyRef Name="ModulId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TalkMaste__Sessi__403A8C7D">
+    <End Role="SessionMaster" Type="Self.SessionMaster" Multiplicity="0..1" />
+    <End Role="TalkMaster" Type="Self.TalkMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SessionMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TalkMaster">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserBookM__UserI__671F4F74">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserBookMark" Type="Self.UserBookMark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="UserBookMark">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserModul__Facul__681373AD">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+    <End Role="UserModuleImage" Type="Self.UserModuleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Faculty_Id" />
+      </Principal>
+      <Dependent Role="UserModuleImage">
+        <PropertyRef Name="Faculty_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserModul__Modul__5070F446">
+    <End Role="ModuleMaster" Type="Self.ModuleMaster" Multiplicity="0..1" />
+    <End Role="UserModuleImage" Type="Self.UserModuleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModuleMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserModuleImage">
+        <PropertyRef Name="ModulId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserModul__Modul__5165187F">
+    <End Role="ModuleImage" Type="Self.ModuleImage" Multiplicity="0..1" />
+    <End Role="UserModuleImage" Type="Self.UserModuleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModuleImage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserModuleImage">
+        <PropertyRef Name="ModuleImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserModul__UserI__52593CB8">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserModuleImage" Type="Self.UserModuleImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="UserModuleImage">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserRatin__RatId__6BE40491">
+    <End Role="RatingMaster" Type="Self.RatingMaster" Multiplicity="1" />
+    <End Role="UserRating" Type="Self.UserRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RatingMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRating">
+        <PropertyRef Name="RatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTask__TalkId__4CA06362">
+    <End Role="TalkMaster" Type="Self.TalkMaster" Multiplicity="0..1" />
+    <End Role="UserTalks" Type="Self.UserTalks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TalkMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTalks">
+        <PropertyRef Name="TalkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTask__UserId__4D94879B">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserTalks" Type="Self.UserTalks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="UserTalks">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_Faculty">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Faculty_Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="Faculty_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Course_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="User_Course" Type="Self.User_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="User_Course">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Course_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User_Course" Type="Self.User_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="User_Course">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Activate_User_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Guid" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionId" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionStatus" Type="varchar" Mode="In" />
+    <Parameter Name="OrderStatus" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Delete_User_BookMark" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BookMarkId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Delete_User_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Email_Verified" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Guid" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Forgot_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Get_All_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_Talk_Video" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TalkId" Type="int" Mode="In" />
+    <Parameter Name="UserTalkId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_Total_Course_Cost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Guid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Get_Tutorial_Summary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_User_BookMark" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="TalkId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_User_Images" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ModuleId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_User_Notification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_User_Ratings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="TalkId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_User_Talks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Insert_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="First_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Middle_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Last_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Email_Verified" Type="bit" Mode="In" />
+    <Parameter Name="Mobile" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="Professional_Specialty" Type="varchar" Mode="In" />
+    <Parameter Name="Educational_Qualification" Type="varchar" Mode="In" />
+    <Parameter Name="Street_Address" Type="varchar" Mode="In" />
+    <Parameter Name="City_Town" Type="varchar" Mode="In" />
+    <Parameter Name="Country" Type="varchar" Mode="In" />
+    <Parameter Name="Institution_Work_Place" Type="varchar" Mode="In" />
+    <Parameter Name="Where_Hear" Type="varchar" Mode="In" />
+    <Parameter Name="IsInterestedIOTA" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_User_BookMark" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="BookMarkName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BookMarkTime" Type="nvarchar" Mode="In" />
+    <Parameter Name="TalkId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Insert_User_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="Course_Id" Type="int" Mode="In" />
+    <Parameter Name="Registered_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Registered_Till" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_Mode" Type="varchar" Mode="In" />
+    <Parameter Name="Payment_Amount" Type="decimal" Mode="In" />
+    <Parameter Name="Payment_Currency" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Reset_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="Guid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Update_IsParticipate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="IsParticipate" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Notification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Update_SignIn_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Update_SignOut_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Update_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="First_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Middle_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Last_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Email_Verified" Type="bit" Mode="In" />
+    <Parameter Name="Mobile" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="Professional_Specialty" Type="varchar" Mode="In" />
+    <Parameter Name="Educational_Qualification" Type="varchar" Mode="In" />
+    <Parameter Name="Street_Address" Type="varchar" Mode="In" />
+    <Parameter Name="City_Town" Type="varchar" Mode="In" />
+    <Parameter Name="Country" Type="varchar" Mode="In" />
+    <Parameter Name="Institution_Work_Place" Type="varchar" Mode="In" />
+    <Parameter Name="Where_Hear" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Update_User_Email_Verification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Update_User_Ratings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserRatingId" Type="int" Mode="In" />
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="RatingId" Type="int" Mode="In" />
+    <Parameter Name="RateMark" Type="int" Mode="In" />
+    <Parameter Name="TalkId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Update_User_Talk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_TalkId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Update_UserIp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+    <Parameter Name="IpAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserAgent" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Update_UserTalk_Commet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserTalkId" Type="int" Mode="In" />
+    <Parameter Name="Comment" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Update_UserTalk_Exam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserTalkId" Type="int" Mode="In" />
+    <Parameter Name="ModuleId" Type="int" Mode="In" />
+    <Parameter Name="User_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Update_UserTalk_Status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserTalkId" Type="int" Mode="In" />
+    <Parameter Name="IsVideoStatus" Type="bit" Mode="In" />
+    <Parameter Name="IsExamlear" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Upload_Module_Image" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserModuleImageId" Type="int" Mode="In" />
+    <Parameter Name="ImagePath" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ModuleId" Type="int" Mode="In" />
+    <Parameter Name="ModuleImageId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Verify_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Verify_User_By_Guid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Guid" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="GynacModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModuleImage" EntityType="Self.ModuleImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModuleMaster" EntityType="Self.ModuleMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RatingMaster" EntityType="Self.RatingMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SessionMaster" EntityType="Self.SessionMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TalkMaster" EntityType="Self.TalkMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Course" EntityType="Self.User_Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserBookMark" EntityType="Self.UserBookMark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserModuleImage" EntityType="Self.UserModuleImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRating" EntityType="Self.UserRating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTalks" EntityType="Self.UserTalks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Faculty__AspNetU__0C50D423" Association="Self.FK__Faculty__AspNetU__0C50D423">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Faculty" EntitySet="Faculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModuleIma__Modul__3B75D760" Association="Self.FK__ModuleIma__Modul__3B75D760">
+      <End Role="ModuleMaster" EntitySet="ModuleMaster" />
+      <End Role="ModuleImage" EntitySet="ModuleImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModuleMas__Facul__5AB9788F" Association="Self.FK__ModuleMas__Facul__5AB9788F">
+      <End Role="Faculty" EntitySet="Faculty" />
+      <End Role="ModuleMaster" EntitySet="ModuleMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ModuleMas__Sessi__38996AB5" Association="Self.FK__ModuleMas__Sessi__38996AB5">
+      <End Role="SessionMaster" EntitySet="SessionMaster" />
+      <End Role="ModuleMaster" EntitySet="ModuleMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__Facul__5EBF139D" Association="Self.FK__Notificat__Facul__5EBF139D">
+      <End Role="Faculty" EntitySet="Faculty" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__UserI__5FB337D6" Association="Self.FK__Notificat__UserI__5FB337D6">
+      <End Role="User" EntitySet="User" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TalkMaste__Facul__3E52440B" Association="Self.FK__TalkMaste__Facul__3E52440B">
+      <End Role="Faculty" EntitySet="Faculty" />
+      <End Role="TalkMaster" EntitySet="TalkMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TalkMaste__Modul__3F466844" Association="Self.FK__TalkMaste__Modul__3F466844">
+      <End Role="ModuleMaster" EntitySet="ModuleMaster" />
+      <End Role="TalkMaster" EntitySet="TalkMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TalkMaste__Sessi__403A8C7D" Association="Self.FK__TalkMaste__Sessi__403A8C7D">
+      <End Role="SessionMaster" EntitySet="SessionMaster" />
+      <End Role="TalkMaster" EntitySet="TalkMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserBookM__UserI__671F4F74" Association="Self.FK__UserBookM__UserI__671F4F74">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserBookMark" EntitySet="UserBookMark" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserModul__Facul__681373AD" Association="Self.FK__UserModul__Facul__681373AD">
+      <End Role="Faculty" EntitySet="Faculty" />
+      <End Role="UserModuleImage" EntitySet="UserModuleImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserModul__Modul__5070F446" Association="Self.FK__UserModul__Modul__5070F446">
+      <End Role="ModuleMaster" EntitySet="ModuleMaster" />
+      <End Role="UserModuleImage" EntitySet="UserModuleImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserModul__Modul__5165187F" Association="Self.FK__UserModul__Modul__5165187F">
+      <End Role="ModuleImage" EntitySet="ModuleImage" />
+      <End Role="UserModuleImage" EntitySet="UserModuleImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserModul__UserI__52593CB8" Association="Self.FK__UserModul__UserI__52593CB8">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserModuleImage" EntitySet="UserModuleImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserRatin__RatId__6BE40491" Association="Self.FK__UserRatin__RatId__6BE40491">
+      <End Role="RatingMaster" EntitySet="RatingMaster" />
+      <End Role="UserRating" EntitySet="UserRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTask__TalkId__4CA06362" Association="Self.FK__UserTask__TalkId__4CA06362">
+      <End Role="TalkMaster" EntitySet="TalkMaster" />
+      <End Role="UserTalks" EntitySet="UserTalks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTask__UserId__4D94879B" Association="Self.FK__UserTask__UserId__4D94879B">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserTalks" EntitySet="UserTalks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_Faculty" Association="Self.FK_Course_Faculty">
+      <End Role="Faculty" EntitySet="Faculty" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Course_Course" Association="Self.FK_User_Course_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="User_Course" EntitySet="User_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Course_User" Association="Self.FK_User_Course_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Course" EntitySet="User_Course" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,273 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    SelectList ModuleList = ViewBag.moduleList;
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<style>
+    .modal-xxl .modal-body {
+        height: 580px;
+        width: 99%;
+        overflow: auto;
+    }
+
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .item {
+        position: relative;
+        border: 1px solid #333;
+        margin: 2%;
+        overflow: hidden;
+        width: 300px;
+    }
+
+        .item img {
+            max-width: 100%;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .item:hover img {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+                #loading{position: fixed; z-index: 999999999; height: 100%; width: 100%;background-color: rgba(0,0,0,0.05)}
+#loading img{    width: 8%;
+    margin-left: 46%;
+    margin-top: 20%;}
+
+</style>
+<div class="loading" id="loading" style="display:none">
+    <img src="~/Content/images/loader.gif" />
+</div>
+
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Upload</span>
+    </h2>
+</div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+    <div class="blank-page">
+        <div class="row" style="margin-top:5px;">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.DropDownList("ModuleMaster", ModuleList, "Seelct Module")
+                    </div>
+                    <div class="col-md-10"></div>
+                </div>
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-md-2">
+                        <textarea rows="4" cols="60" id="moduleImageDesc" placeholder="Enter Description"></textarea>
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                </div>
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-md-4">
+                        <input type="file" id="FileUpload1" multiple />
+                    </div>
+                    <div class="col-md-8">
+                        <input type="button" id="btnUpload" value="Submit" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>SampleImage</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="moduleImage"></tbody>
+                        </table>
+                        <div id="display" style="display:none;text-align:center">Please select Module</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="deletemoduleimage" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="modal-title">Remove</h2>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="txtmoduleImageId" />
+                <p>Do you want To remove this Module Image?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <input type="button" value="Yes" class="btn btn-danger" id="delereNotification" onclick="removeModuleImage()" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade model-center" id="imagemodal">
+    <div class="modal-dialog modal-xxl" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>&nbsp;</span>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body modalheight">
+                <img src="" class="imagepreview">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script type="text/javascript">
+    
+    function openBigImageModal(currentElement) {
+        debugger;
+        console.log(currentElement);
+        //var data = $(currentElement).children('imag').attr('src');
+        windowHeight = $(window).innerHeight() - 200;
+        $('.modalheight').css('min-height', windowHeight);
+        $('.imagepreview').attr('src', $(currentElement).children().attr('src'));
+    }
+
+    $(document).ready(function () {
+        $("#display").show();
+        $("#ModuleMaster").change(function () {
+            var id = $("#ModuleMaster").val();
+            if (id != "") {
+                getImageByModule(id);
+            }
+            else {
+                alert("Please select the module first! ");
+            }
+        });
+
+        function getImageByModule(moduleId) {
+            $.ajax({
+                type: "GET",
+                url: '/Module/GetSampleImages?moduleId=' + moduleId,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                data: {},
+                success: function (result) {
+                    var data = result;
+                    $("#moduleImageDesc").val();
+                    if (data.length > 0) {
+                        $("#display").hide();
+                    }
+                    else {
+                        $("#display").show();
+                    }
+                    $("#moduleImage tr").remove();
+                    for (var i = 0; i < data.length; i++) {
+
+                        $("#moduleImage").append("<tr><td>" + data[i].ModuleSampleImageId + "</td><td><a onclick='openBigImageModal(this)' data-toggle='modal' data-target='#imagemodal' data-backdrop='static' data-keyboard='false'><img class='imagepointer'  src='" + data[i].SampleImage + "' height='200px;' width='300px;' /></a></td><td>" + data[i].ImageDesc + "</td><td><a data-toggle='modal' data-target='#deletemoduleimage' onclick='setModuleImage(" + data[i].ModuleSampleImageId + ")'><i class='fa fa-trash' aria-hidden='true'></i></a></td></tr>")
+                        //$("#moduleImage").append("<tr><td>" + data[i].ModuleSampleImageId + "</td><td><div class='item'><img src='" + data[i].SampleImage + "' width='300px' height='200px'/><div class='item-overlay top'></div></div></td><td>" + data[i].ImageDesc + "</td></tr>")
+                    }
+                },
+                error: function (error) {
+                    //$("#eroor").html(error.responseText);
+                }
+            });
+        }
+
+        $('#btnUpload').click(function () {
+            $('#loading').show();
+            var moduleId = $("#ModuleMaster").val();
+            if (moduleId != "") {
+                var fd = new FormData();
+                //Take the first selected file
+                var fileUpload = $("#FileUpload1").get(0);
+                //var files = fileUpload.files;
+
+                var files = fileUpload.files;
+                //var i = files.name;
+
+                fd.append("file", files[0]);
+                //fd.append("UserId", userId);
+                fd.append("ModuleId", $("#ModuleMaster").val());
+                fd.append("ModuleImageDesc", $("#moduleImageDesc").val());
+                //fd.append("userModuleImageId", UserImageId);
+
+                $.ajax({
+                    url: '/Module/UploadFiles',
+                    type: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: fd,
+                    success: function (response) {
+                        //code after success
+                        $('#loading').hide();
+                        alert("Image Upload Successfullly!!");
+                        getImageByModule(moduleId);
+                    },
+                    error: function (er) {
+                        console.log(er);
+                        $('#loading').hide();
+                        //alert(er);
+                    }
+                });
+            }
+            else {
+                $('#loading').hide();
+                alert("Please select the module first! ");
+            }
+        });
+
+    });
+
+    //removeModuleImage
+    function removeModuleImage() {
+        var i = $("#txtmoduleImageId").val();
+        $.ajax({
+            url: '/Module/DeleteSampleImage?sampleModuleId=' + i,
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: {},
+            success: function (response) {
+                //code after success
+                //alert("Delete Successfyllly!!");
+                location.href = "/Module/Index";
+                //getImageByModule(i);
+            },
+            error: function (er) {
+                console.log(er);
+                //alert(er);
+            }
+        });
+    }
+
+    function setModuleImage(moduleImageId) {
+
+        $("#txtmoduleImageId").val(moduleImageId);
+    }
+
+</script>

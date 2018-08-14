@@ -1,0 +1,276 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    #loading {
+        position: fixed;
+        z-index: 999999999;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.05);
+    }
+
+        #loading img {
+            width: 8%;
+            margin-left: 46%;
+            margin-top: 20%;
+        }
+</style>
+
+<div class="loading" id="loading" style="display:none">
+    <img src="~/Content/images/loader.gif" />
+</div>
+
+<!--banner-->
+<div class="banner">
+    <h2>
+        <a href="/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Report</span>
+    </h2>
+</div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">    
+    <div class="blank-page">
+        <div class="row">
+            <div class="col-md-4">
+                <select>
+                    <option value="0">Select Report Type</option>
+                    <option value="1">Image submission</option>
+                    <option value="2">Video</option>
+                    <option value="3">Bookmark</option>
+                    <option value="4">Rating</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownList("bachId", (IEnumerable
+                                                 <SelectListItem>)ViewBag.loadBatch)                 
+            </div>
+            <div class="col-md-4">
+                Remaining SMS Credit :
+                <span class="label label-primary">@ViewBag.smsBalanceCount</span>
+            </div>
+        </div>
+        <br />
+        <hr />
+
+
+        <div class="row">
+            <div class="col-md-12">
+                @*Video data Report*@
+                <div class="table-responsive" id="divVideoReport" style="overflow-x:auto;">
+                    <table class="table table-bordered table-striped" id="tblVideoReport">
+                        <thead>
+                            <tr>
+                                <th>Sr.No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Talk Name where access is granted</th>
+                                <th>Video Started</th>
+                                <th>Self Assessment Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblVideoReportData"></tbody>
+                    </table>
+                </div>
+
+                @*Bookmark data Report*@
+
+                <div class="table-responsive" id="divBookMarkReport" style="overflow-x:auto;">
+                    <table class="table table-bordered table-striped" id="tblBookMarkReport">
+                        <thead>
+                            <tr>
+                                <th>Sr.No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Talk Name</th>
+                                <th>BookMarkName</th>
+                                <th>BookMark Time (In sec)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblBookMarkReportData"></tbody>
+                    </table>
+
+                </div>
+
+                @*Rating data Report*@
+                <div class="table-responsive" id="divRatingReport" style="overflow-x:auto;">
+                    <table class="table table-bordered table-striped" id="tblRatingReport">
+                        <thead>
+                            <tr>
+                                <td>Sr.No</td>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Talk Name</th>
+                                <th>RatingName</th>
+                                <th>RateMark</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblRatingReportData"></tbody>
+                    </table>
+
+                </div>
+
+                @*Image Submission data Report*@
+                
+                <div class="table-responsive" style="overflow-x:auto;" id="divImageReport">
+                    <table id="tblImageReport" class="table table-bordered table-striped" cellspacing="0">
+                        @*<table class="table table-striped table-hover dt-responsive display nowrap" id="tblImageReport">*@
+                        <thead>
+                            <tr>
+                                <td>Sr.No</td>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Faculty Name</th>
+                                <th>Module Name</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Comment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblImageReportData"></tbody>
+                    </table>
+
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="displayReportMsg">No Record Found</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.2/js/dataTables.responsive.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#divImageReport").hide();
+        $("#divVideoReport").hide();
+        $("#divBookMarkReport").hide();
+        $("#divRatingReport").hide();
+
+        $('select').on('change', function () {
+            var reportType = $(this).val();
+            $('#loading').show();
+            if (reportType != "") {
+                getReports(reportType, $("#bachId").val());
+            }
+            else {
+                alert("Please select the module first! ");
+            }
+        });
+
+        $('#bachId').on('change', function () {            
+            $('#loading').show();
+            getReports($('select option:selected').val(), $("#bachId").val());
+        });
+
+        function getReports(ReportType, bachId) {
+
+            $.ajax({
+                type: "GET",
+                url: '/Report/GetReports?reportNumber=' + ReportType + '&bachId=' + bachId.toString(),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                data: {},
+                success: function (result) {
+                    //window.JSON.parse(result);//
+                    var data = result;
+                    $("#divImageReport").hide();
+                    $("#divVideoReport").hide();
+                    $("#divBookMarkReport").hide();
+                    $("#divRatingReport").hide();                    
+
+                    //this is video report type
+                    if (ReportType == "1") {
+                        $("#displayReportMsg").show();
+
+                        $("#divImageReport").show();
+                        $("#tblImageReportData tr").remove();
+                        if (data.length > 0) {
+                            $("#displayReportMsg").hide();
+                            var srNo = 0;
+                            for (var i = 0; i < data.length ; i++) {
+                                srNo++;
+                                $("#tblImageReportData").append("<tr><td>" + srNo + "</td><td>" + data[i].First_Name + "</td><td>" + data[i].Last_Name + "</td><td>" + data[i].Email + "</td><td>" + data[i].Faculty_Name + "</td><td>" + data[i].Module_Name + "</td><td>" + data[i].Image_Description + "</td><td>" + data[i].Status + "</td><td>" + data[i].Comment + "</td></tr>")
+                            }
+                            $("#tblImageReport").dataTable();                            
+                        }
+                    }
+                    else if (ReportType == "2") {
+                        $("#displayReportMsg").show();
+                        $("#divVideoReport").show();
+                        $("#tblVideoReportData tr").remove();
+                        if (data.length > 0) {
+                            $("#displayReportMsg").hide();
+                            var srNo = 0;
+                            for (var i = 0; i < data.length ; i++) {
+                                srNo++;
+                                $("#tblVideoReportData").append("<tr><td>" + srNo + "</td><td>" + data[i].First_Name + "</td><td>" + data[i].Last_Name + "</td><td>" + data[i].Email + "</td><td>" + data[i].Talk_Name_where_access_is_granted + "</td><td>" + data[i].Video_Started + "</td><td>" + data[i].Self_Assessment_Status + "</td></tr>")
+                            }
+                            
+                            $("#tblVideoReport").dataTable();
+                        }                        
+                    }
+                    else if (ReportType == "3") {
+                        $("#displayReportMsg").show();
+
+                        $("#divBookMarkReport").show();
+                        $("#tblBookMarkReportData tr").remove();
+                        if (data.length > 0) {
+                            $("#displayReportMsg").hide();
+                            var srNo = 0;
+                            for (var i = 0; i < data.length ; i++) {
+                                srNo++;
+                                $("#tblBookMarkReportData").append("<tr><td>" + srNo + "</td><td>" + data[i].First_Name + "</td><td>" + data[i].Last_Name + "</td><td>" + data[i].Email + "</td><td>" + data[i].Talk_Name + "</td><td>" + data[i].BookMarkName + "</td><td>" + data[i].Book_Mark_Time + "</td><</tr>")
+                            }
+                            $("#tblBookMarkReport").dataTable();
+                        }
+                        
+                    }
+                    else if (ReportType == "4") {
+                        $("#displayReportMsg").show();
+
+                        $("#divRatingReport").show();
+                        $("#tblRatingReportData tr").remove();
+                        if (data.length > 0) {
+                            $("#displayReportMsg").hide();
+                            var srNo = 0;
+                            for (var i = 0; i < data.length ; i++) {
+                                srNo++;
+                                $("#tblRatingReportData").append("<tr><td>" + srNo + "</td><td>" + data[i].First_name + "</td><td>" + data[i].Last_Name + "</td><td>" + data[i].Email + "</td><td>" + data[i].Talk_Name + "</td><td>" + data[i].RatingName + "</td><td>" + data[i].RateMark + "</td><</tr>")
+                            }
+                            $("#tblRatingReport").dataTable();
+                        }
+
+                    }
+                    else {
+                        $("#displayReportMsg").show();
+                    }
+                    $('#loading').hide();
+
+
+                },
+                error: function (error) {
+                    $('#loading').hide();
+                    //$("#eroor").html(error.responseText);
+                }
+            });
+        }
+    });
+</script>
