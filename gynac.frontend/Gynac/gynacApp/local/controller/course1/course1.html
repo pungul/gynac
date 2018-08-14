@@ -1,0 +1,114 @@
+<section class="home training" id="course_Top">
+    <div class="slider-relative">
+        <nav class="navbar navbar-default nav-header">
+            <div class="container" id="courceTop">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-list-main" id="bs-example-navbar-collapse-1">
+                    <div class="col-sm-12 col-md-12">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li class="li-1"><a class="a-1" href="#/home">Home <span class="sr-only">(current)</span></a></li>
+                            <li class="li-1"><a class="a-1" href="#/about">About Us</a></li>
+                            <li class="dropdown li-1 state-active"><a class="a-1" href="javascript:;">Courses</a>
+                                <ul class="dropdown-menu">
+                                    <li class="li-2"><a class="a-2 state-active" href="#/6_Month_Certification_Course">6-Month Certification Course </a></li>
+                                    <li class="li-2"><a class="a-2" href="#/Individual_Lectures">Individual Lectures</a></li>
+                                    <li class="li-2"><a class="a-2" href="#/IOTA_Certification_Course">IOTA Certification Program</a></li>
+                                </ul>
+                            </li>
+                            <li class="li-1"><a class="a-1" href="#/lecture">Lectures</a></li>
+                            <li class="li-1"><a class="a-1" href="#/freelecture">Free Lectures</a></li>
+                            <li class="li-1"><a class="a-1" href="#/faculty">Faculty</a></li>
+                            <li class="li-1"><a class="a-1" href="#/contact">Contact</a></li>
+                            <li class="li-1"><a class="a-1" href="#/signIn" ng-hide="authenticatedUser.UserInfo.First_Name">Login</a></li>
+                            <li class="li-1"><a class="a-1" href="#/signUp" ng-hide="authenticatedUser.UserInfo.First_Name">Register</a></li>
+                            <li class="dropdown li-1">
+                                <a class="a-1" href="javascript:;" ng-show="authenticatedUser.UserInfo.First_Name">{{authenticatedUser.UserInfo.First_Name}}</a>
+                                <ul class="dropdown-menu">
+                                    <li class="li-2"><a class="a-2" href="#/myProfile">My Profile</a></li>
+                                    <li class="li-2"><a class="a-2" href="#/training">Training Detail</a></li>
+                                    <li class="li-2" ng-click="signOut()"><a class="a-2" href="javascript:;">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown li-1" ng-show="authenticatedUser.UserInfo.First_Name">
+                                <a class="a-1" href="javascript:;" ng-click="getAllNotification()">
+                                    <i class="fa fa-bell" aria-hidden="true" ng-show="authenticatedUser.UserInfo.First_Name">{{notificationCount.length}}</i>
+                                </a>
+                            </li>
+                            <li class="li-3">
+                                <a href="https://www.facebook.com/Gynecology-Academy-1776711995945554Gynecology-Academy-1776711995945554" class="btn btn-social-icon btn-facebook" target="_blank"> <i class="fa fa-facebook"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+            <div class="row page-header banner-page">
+                <div class="col-sm-12 col-md-2 sm-center"><img src="gynacApp/local/img/logo.png" alt="logo" /> </div>
+                <div class="col-sm-12 col-md-8 sm-center">
+                    <h2>ULTRASOUND IN GYNECOLOGY</h2>
+                    <h2>6 Month Certification Course</h2>
+                </div>
+                <!--<div class="col-sm-12 col-md-2 sm-center">
+                    <div class='btn-toolbar pull-right'>
+                        <div class='btn-group button-effect'> <a href="#/6_Month_Certification_Course#course_Top" class="btn effect custom-effect">APPLY NOW</a> </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="container main-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="center-block course-name">6 MONTH CERTIFICATION COURSE – ULTRASOUND IN GYNECOLOGY</h4>
+            </div>
+            <div class="col-md-12">
+                <p style="margin: 50px 0 20px;">Gynecology Academy provides a 6-month online certification course: <i>Ultrasound in Gynecology.</i> This is a comprehensive training program with a curriculum covering all topics in Gynecological ultrasound. </p>
+                <p style="margin: 0;"><b>COURSE DURATION:</b></p>
+                <p style="margin: 0 0 20px;">The course is for a duration of 6 months. The next batch starts on June 1st, 2018 and will extend till  Nov. 30th.</p>
+                <p style="margin: 20px 0 0;"><b>FACULTY:</b> <i>Dr Mala Sibal & Dr Sonal Panchal</i></p>
+                <p style="margin: 0;">The faculty are experts in the field of gynecological ultrasound. They have authored research articles and books on the subject and are passionate teachers who have trained several doctors in Gynecological Ultrasound for well over a decade. Click <a href="#/faculty#facultyTop">here</a> for more details. </p>
+                <p style="margin: 20px 0 0;"><b>COURSE CONTENT:</b></p>
+
+                <p>The subject matter has been divided into 12 modules and each module consists of multiple lectures. For the first 4 months, each month, access will be given for one new session (containing 3 modules). </p>
+                <p style="margin: 0;">Click <a href="#/lecture#latureTop">here</a> to see the lectures and topics that will be covered. </p>
+                <p style="margin: 50px 0 20px;font-weight: bold">SPECIAL FEATURES:&nbsp;&nbsp;&nbsp;<img src="gynacApp/local/img/expand_icon.png" class="plus-height" ng-click="slide1 = true" ng-show="!slide1"></p> <br>
+                <div ng-show="slide1">
+                    <p style="margin: 20px 0;" class="courseFeatures">A comprehensive coverage of all topics in gynecological ultrasound including Infertility. This includes basic and advanced training in the subject. Various techniques of evaluation and rare pathologies have also been included.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">The lectures include abundant images and numerous videos. Videos are essential because transvaginal scanning is a dynamic & interactive examination, that can only be captured and explained well with the help of videos.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Self-assessment at the end of each lecture to test knowledge acquired.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Answering questions and clarification of doubts on material provided.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Access to online lectures for an extended period of time to allow self-paced learning and revision of talks and videos for in-depth learning.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Online submission of images for assessment</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">In addition, we also have an optional test at the end of the course (usually the end of the 5th month) to certify that the student has a sound understanding of all aspects of Gynecological Ultrasound. The test will be conducted in person, either in Bangalore, or in a nearby city, if there are sufficient candidates.</p>
+                    <img src="gynacApp/local/img/collapse_icon.png" class="plus-height margin-bottom15" ng-click="slide1 = false" ng-show="slide1">
+                </div>
+                <p><b>CERTIFICATION:</b> The certificate provided at the end of the course, by the Academy, will be of three types:</p>
+                <p><b>Certificate of Participation:</b> On enrolling for the course. </p>
+                <p><b>Certificate of Completion:</b> If the images have been submitted as specified and self-assessment done for all the lectures.</p>
+                <p><b>Certificate of Competence:</b> In addition to the above, if the candidate has passed the test at the end of the course. </p> <br>
+                <p style="margin: 20px 0 0;"><b>COURSE FEE:</b> Rs 72,000 (All Inclusive)</p>
+                <p>The candidates who desire to do the optional test at the end of the course (usually the end of the 5th month) so as to obtain the certificate of competence, will be required to pay an additional fee of Rs 5000.</p>
+                <p style="margin: 20px 0 0;">Contact: <b>+91 9325890820 </b> or <a href="mailto:support@gynac.org?Subject=Hi%20Heloo%20Hi%20subject" target="_top">support@gynac.org</a></p>
+                <div style="margin: 20px 0 0;">
+                    <p style="margin: 13px 0 0;display: inline-block;vertical-align: top;">To buy and enrol for the 6-month certification course -</p>&nbsp;&nbsp;
+                    <div class="btn-toolbar" style="margin: 0;display: inline-block">
+                        <div class="btn-group button-effect"> <a target="_blank" href="https://gynac.ccavenue.com/stores/prl/gynac,34215" class="btn effect custom-effect">CLICK HERE</a> </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</section>

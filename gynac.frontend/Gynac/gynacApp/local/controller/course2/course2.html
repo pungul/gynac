@@ -1,0 +1,1086 @@
+<section class="home training">
+    <div class="slider-relative">
+        <nav class="navbar navbar-default nav-header">
+            <div class="container" id="courceTop">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-list-main" id="bs-example-navbar-collapse-1">
+                    <div class="col-sm-12 col-md-12">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li class="li-1"><a class="a-1" href="#/home">Home <span class="sr-only">(current)</span></a></li>
+                            <li class="li-1"><a class="a-1" href="#/about">About Us</a></li>
+                            <li class="dropdown li-1 state-active"><a class="a-1" href="javascript:;">Courses</a>
+                                <ul class="dropdown-menu">
+                                    <li class="li-2"><a class="a-2" href="#/6_Month_Certification_Course">6-Month Certification Course </a></li>
+                                    <li class="li-2"><a class="a-2 state-active" href="#/Individual_Lectures">Individual Lectures</a></li>
+                                    <li class="li-2"><a class="a-2" href="#/IOTA_Certification_Course">IOTA Certification Program</a></li>
+                                </ul>
+                            </li>
+                            <li class="li-1"><a class="a-1" href="#/lecture">Lectures</a></li>
+                            <li class="li-1"><a class="a-1" href="#/freelecture">Free Lectures</a></li>
+                            <li class="li-1"><a class="a-1" href="#/faculty">Faculty</a></li>
+                            <li class="li-1"><a class="a-1" href="#/contact">Contact</a></li>
+                            <li class="li-1"><a class="a-1" href="#/signIn" ng-hide="authenticatedUser.UserInfo.First_Name">Login</a></li>
+                            <li class="li-1"><a class="a-1" href="#/signUp" ng-hide="authenticatedUser.UserInfo.First_Name">Register</a></li>
+                            <li class="dropdown li-1">
+                                <a class="a-1" href="javascript:;" ng-show="authenticatedUser.UserInfo.First_Name">{{authenticatedUser.UserInfo.First_Name}}</a>
+                                <ul class="dropdown-menu">
+                                    <li class="li-2"><a class="a-2" href="#/myProfile">My Profile</a></li>
+                                    <li class="li-2"><a class="a-2" href="#/training">Training Detail</a></li>
+                                    <li class="li-2" ng-click="signOut()"><a class="a-2" href="javascript:;">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown li-1" ng-show="authenticatedUser.UserInfo.First_Name">
+                                <a class="a-1" href="javascript:;" ng-click="getAllNotification()">
+                                    <i class="fa fa-bell" aria-hidden="true" ng-show="authenticatedUser.UserInfo.First_Name">{{notificationCount.length}}</i>
+                                </a>
+                            </li>
+                            <li class="li-3">
+                                <a href="https://www.facebook.com/Gynecology-Academy-1776711995945554Gynecology-Academy-1776711995945554" class="btn btn-social-icon btn-facebook" target="_blank"> <i class="fa fa-facebook"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+            <div class="row page-header banner-page">
+                <div class="col-sm-12 col-md-2 sm-center"><img src="gynacApp/local/img/logo.png" alt="logo" /> </div>
+                <div class="col-sm-12 col-md-8 sm-center">
+                    <h2>ULTRASOUND IN GYNECOLOGY</h2>
+                    <h2>6 Month Certification Course</h2>
+                </div>
+                <!--<div class="col-sm-12 col-md-2 sm-center">
+                    <div class='btn-toolbar pull-right'>
+                        <div class='btn-group button-effect'> <a href="#/6_Month_Certification_Course#course_Top" class="btn effect custom-effect">APPLY NOW</a> </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="container main-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="center-block course-name">INDIVIDUAL LECTURES AND MODULES</h4>
+            </div>
+            <div class="col-md-12">
+                <p style="margin: 50px 0 20px;">Registrants can choose a single lecture or module or a combination of the lectures/modules to suit their personal requirements. Please note: There is overlap of information between various topics and therefore there is a possibility that in a talk, it may be mentioned that a particular part/aspect within a topic is covered in another talk.
+                </p>
+                <p style="margin: 0;"><b>DURATION OF ACCESS:</b></p>
+                <p style="margin: 0 0 20px;">Access will be available for one month for individual lectures and 3 months for individual modules.</p>
+                <p style="margin: 50px 0 20px;font-weight: bold">SPECIAL FEATURES:&nbsp;&nbsp;&nbsp;<img src="gynacApp/local/img/expand_icon.png" class="plus-height" ng-click="slide1 = true" ng-show="!slide1"></p> <br>
+                <div ng-show="slide1">
+                    <p style="margin: 20px 0;" class="courseFeatures">A comprehensive coverage of all topics in gynecological ultrasound including Infertility from which one can choose. This includes basic and advanced training on the topic. Various techniques of evaluation and rare pathologies have also been included.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">The lectures include abundant images and numerous videos. Videos are essential because transvaginal scanning is a dynamic & interactive examination, that can only be captured and explained well with the help of videos.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Self-assessment at the end of each lecture to test knowledge acquired.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Answering questions and clarification of doubts on material provided.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Access to online lectures for an extended period of time to allow self-paced learning and revision of talks and videos for in-depth learning.</p>
+                    <p style="margin: 20px 0;" class="courseFeatures">Online submission of images for assessment when an entire module is chosen. </p>
+                    <img src="gynacApp/local/img/collapse_icon.png" class="plus-height margin-bottom15" ng-click="slide1 = false" ng-show="slide1">
+                </div>
+                <p style="margin: 20px 0 0;"><b>CERTIFICATION:</b> The certificate provided by the Academy, will be of two types:</p>
+                <p style="margin: 20px 0 0;"><b>Certificate of Participation:</b> On enrolling for the lecture. </p>
+                <p style="margin: 20px 0 0;"><b>Certificate of Completion:</b> If the images have been submitted (for selected module) and self-assessment done (for selected lecture). </p>
+                <p>&nbsp;</p> <br>
+                <p style="margin: 20px 0 0;"><b>LIST OF MODULES AND INDIVIDUAL LECTURES:</b></p>
+                <p>&nbsp;</p>
+                <h4 style="color: #333">Click "Enrol" button below to buy and enrol for the individual lectures.</h4>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 1: General Techniques in Gynecological Ultrasound</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module1List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule1TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module1Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module1OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 1: General Techniques in Gynecological Ultrasound</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module1List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule1TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module1Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module1OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 2: Ultrasound Evaluation of Myometrium</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module2List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule2TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module2Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module2OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 2: Ultrasound Evaluation of Myometrium</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module2List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule2TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module2Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module2OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 3: Ultrasound Evaluation of Congenital Uterine Anomalies</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module3List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule3TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module3Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module3OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 3: Ultrasound Evaluation of Congenital Uterine Anomalies</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module3List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule3TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module3Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module3OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 4: Ultrasound Evaluation of Endometrium</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module4List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule4TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module4Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module4OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 4: Ultrasound Evaluation of Endometrium</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module4List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule4TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module4Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module4OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 5: Ultrasound in Infertility</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module5List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule5TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module5Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module5OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 5: Ultrasound in Infertility</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module5List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule5TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module5Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module5OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 6: Ultrasound Evaluation of Cervix & Vagina</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module6List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule6TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module6Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module6OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 6: Ultrasound Evaluation of Cervix & Vagina</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module6List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule6TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module6Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module6OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 7: Ultrasound Evaluation of Ovaries</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module7List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule7TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module7Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module7OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 7: Ultrasound Evaluation of Ovaries</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module7List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule7TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module7Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module7OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 8: Ultrasound Evaluation of Adnexa</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module8List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule8TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module8Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module8OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 8: Ultrasound Evaluation of Adnexa</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module8List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule8TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module8Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module8OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 9: Endometriosis</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module9List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule9TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module9Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module9OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 9: Endometriosis</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module9List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule9TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module9Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module9OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 10: Pregnancy Related Conditions</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module10List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule10TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module10Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module10OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 10: Pregnancy Related Conditions</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module10List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule10TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module10Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module10OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 11: Torsion & Acute Pelvic Pain</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module11List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule11TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module11Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module11OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 11: Torsion & Acute Pelvic Pain</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module11List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule11TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module11Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module11OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" ng-init="slide('next')">
+                    <div class="row talk hidden-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-12 module-name">
+                                            <h3 class="panel-title">Module 12: Ultrasound in Miscellaneous Conditions</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body no-padding">
+                                    <table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">ID</th>
+                                                <th style="width: 450px;">Name</th>
+                                                <th style="width: 135px;">Speaker Name</th>
+                                                <th style="width: 70px;">Cost</th>
+                                                <th style="width: 100px;">Duration</th>
+                                                <th style="width: 100px;">Talk Overview</th>
+                                                <th style="width: 100px;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="talk in module12List.List">
+                                                <td class="lectalktalkid">{{ talk.TalkId}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.TalkName}}</td>
+                                                <td align="left" class="lectalkname">{{ talk.SpeakerName}}</td>
+                                                <td align="left" class="lectalkname">&#x20B9; {{ talk.Cost}}</td>
+                                                <td class="lectalkname">{{ talk.Duration}}</td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-default btn-mobile" ng-click="getmodule12TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module12Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}
+                                                </td>
+                                                <td class="lectalkname">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-create btn-custom" ng-click="module12OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row talk visible-xs">
+                        <div class="col-md-12">
+                            <div class="panel panel-default panel-table">
+                                <div class="panel-heading module-name">
+                                    <h4 style="color: #333">Module 12: Ultrasound in Miscellaneous Conditions</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" ng-repeat="talk in module12List.List">
+                                        <li class="list-group-item lectalktalkid">{{ talk.TalkId}} {{ talk.TalkName}}</li>
+                                        <li class="list-group-item lectalktalkid">{{ talk.SpeakerName}}</li>
+                                        <li class="list-group-item lectalktalkid">&#x20B9; {{ talk.Cost}}</li>
+                                        <li class="list-group-item"><i class="fa fa-clock-o"></i> {{ talk.Duration}}</li>
+                                        <li class="list-group-item"><button type="button" class="btn btn-default btn-mobile" ng-click="getmodule12TalkOverview(talk.TalkId)" data-toggle="modal" data-target="#module12Overview" data-backdrop="static" data-keyboard="false"><i class="fa fa-search fa-fw fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;Overview</button> {{ talk.OverView}}</li>
+                                        <li class="list-group-item">
+                                            <button type="button" class="btn btn-sm btn-primary btn-create btn-custom btn-mobile" ng-click="module12OpenSpeakerVideo(talk.TalkId);">&nbsp;&nbsp;Enrol </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <p style="margin: 20px 0 0;">Contact: <b>+91 9325890820 </b> or <a href="mailto:support@gynac.org?Subject=Hi%20Heloo%20Hi%20subject" target="_top">support@gynac.org</a></p>
+                <br>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module1Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module1overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module1overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module2Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module2overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module2overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module3Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module3overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module3overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module4Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module4overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module4overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module5Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module5overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module5overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module6Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module6overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module6overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module7Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module7overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module7overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module8Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module8overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module8overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module9Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module9overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module9overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module10Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module10overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module10overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module11Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module11overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module11overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade model-center" id="module12Overview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">{{ module12overViewDetails[0].TalkName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ module12overViewDetails[0].Talkdesc}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
